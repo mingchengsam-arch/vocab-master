@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocab Learning Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .card { border: 1px solid #ccc; padding: 10px; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Vocab Learning Application</h1>
+    <div id="vocab-container">
+        <div class="card">
+            <h2>Word: <span id="word"></span></h2>
+            <p>Definition: <span id="definition"></span></p>
+            <button onclick="nextWord()">Next Word</button>
+        </div>
+    </div>
+    <script>
+        const vocabList = [
+            { word: "Aberration", definition: "A departure from what is normal, usual, or expected." },
+            { word: "Belligerent", definition: "Hostile and aggressive." },
+            { word: "Cacophony", definition: "A harsh, discordant mixture of sounds." },
+            // Add more words and definitions as needed
+        ];
+
+        let currentIndex = 0;
+
+        function displayWord() {
+            const wordElement = document.getElementById("word");
+            const definitionElement = document.getElementById("definition");
+
+            wordElement.textContent = vocabList[currentIndex].word;
+            definitionElement.textContent = vocabList[currentIndex].definition;
+        }
+
+        function nextWord() {
+            currentIndex = (currentIndex + 1) % vocabList.length;
+            displayWord();
+        }
+
+        // Initial display
+        displayWord();
+    </script>
+</body>
+</html>
